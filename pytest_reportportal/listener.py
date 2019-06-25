@@ -1,4 +1,4 @@
-import cgi
+import html
 import pytest
 import logging
 
@@ -47,7 +47,7 @@ class RPReportListener(object):
         if report.longrepr:
             self.PyTestService.post_log(
                 # Used for support python 2.7
-                cgi.escape(report.longreprtext),
+                html.escape(report.longreprtext),
                 loglevel='ERROR',
             )
 
